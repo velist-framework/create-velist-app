@@ -1,10 +1,10 @@
 {
-  "name": "create-velist-app",
+  "name": "create-velist",
   "version": "1.0.0",
   "description": "Create a new Velist application",
   "type": "module",
   "bin": {
-    "create-velist-app": "./dist/index.js"
+    "create-velist": "./dist/index.js"
   },
   "files": [
     "dist"
