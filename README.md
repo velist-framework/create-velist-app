@@ -58,6 +58,10 @@ Default credentials:
 - Email: `admin@example.com`
 - Password: `password123`
 
+## Documentation
+
+Visit [velist.dev](https://velist.dev) for full documentation.
+
 ## License
 
 MIT

@@ -68,6 +68,17 @@ async function main() {
     process.exit(1)
   }
 
+  // Initialize git repository
+  const gitSpinner = ora('Initializing git repository...').start()
+  try {
+    execSync('git init', { cwd: projectPath, stdio: 'pipe' })
+    execSync('git add .', { cwd: projectPath, stdio: 'pipe' })
+    execSync('git commit -m "Initial commit"', { cwd: projectPath, stdio: 'pipe' })
+    gitSpinner.succeed('Git repository initialized')
+  } catch (error) {
+    gitSpinner.warn('Git initialization skipped')
+  }
+
   // Setup .env file
   const envSpinner = ora('Setting up environment...').start()
   try {
