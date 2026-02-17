@@ -1,0 +1,47 @@
+{
+  "name": "create-velist-app",
+  "version": "1.0.0",
+  "description": "Create a new Velist application",
+  "type": "module",
+  "bin": {
+    "create-velist-app": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun build ./src/index.ts --outfile ./dist/index.js --target node",
+    "dev": "bun run src/index.ts",
+    "prepublishOnly": "bun run build"
+  },
+  "keywords": [
+    "velist",
+    "elysia",
+    "svelte",
+    "inertia",
+    "kysely",
+    "bun",
+    "fullstack",
+    "typescript",
+    "scaffold",
+    "cli"
+  ],
+  "author": "Velist Framework",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/velist-framework/create-velist-app.git"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.0.0",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  }
+}
