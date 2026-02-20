@@ -93,8 +93,9 @@ async function main() {
       const encryptionKey = cryptoRandomString(32)
       
       let envContent = readFileSync(envPath, 'utf-8')
-      envContent = envContent.replace('change-this-to-a-32-character-secret-key-in-production', jwtSecret)
-      envContent = envContent.replace('change-this-to-a-different-32-char-secret-key', encryptionKey)
+      // Use callback function to avoid special replacement pattern interpretation ($, &, etc)
+      envContent = envContent.replace('change-this-to-a-32-character-secret-key-in-production', () => jwtSecret)
+      envContent = envContent.replace('change-this-to-a-different-32-char-secret-key', () => encryptionKey)
       writeFileSync(envPath, envContent)
     }
     
@@ -172,7 +173,9 @@ async function main() {
 }
 
 function cryptoRandomString(length: number): string {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@$%^&*'
+  // Use only alphanumeric characters to avoid .env parsing issues
+  // Characters like $, !, @, #, etc can be interpreted specially by dotenv parsers
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
   let result = ''
   for (let i = 0; i < length; i++) {
     result += chars.charAt(Math.floor(Math.random() * chars.length))

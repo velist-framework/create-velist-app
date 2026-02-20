@@ -1,6 +1,6 @@
 {
   "name": "create-velist",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "description": "Create a new Velist application",
   "type": "module",
   "bin": {
