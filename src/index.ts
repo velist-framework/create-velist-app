@@ -88,10 +88,13 @@ async function main() {
     if (existsSync(envExamplePath)) {
       copyFileSync(envExamplePath, envPath)
       
-      // Generate random JWT secret
+      // Generate random secrets (32 characters each)
       const jwtSecret = cryptoRandomString(32)
+      const encryptionKey = cryptoRandomString(32)
+      
       let envContent = readFileSync(envPath, 'utf-8')
-      envContent = envContent.replace('change-this-in-production', jwtSecret)
+      envContent = envContent.replace('change-this-to-a-32-character-secret-key-in-production', jwtSecret)
+      envContent = envContent.replace('change-this-to-a-different-32-char-secret-key', encryptionKey)
       writeFileSync(envPath, envContent)
     }
     

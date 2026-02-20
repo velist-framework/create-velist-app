@@ -1,6 +1,6 @@
 {
   "name": "create-velist",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Create a new Velist application",
   "type": "module",
   "bin": {
@@ -30,7 +30,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/velist-framework/create-velist-app.git"
+    "url": "git+https://github.com/velist-framework/create-velist-app.git"
   },
   "dependencies": {
     "@inquirer/prompts": "^7.0.0",
